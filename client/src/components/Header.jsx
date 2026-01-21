@@ -3,45 +3,49 @@ import { assets } from "../assets/assets";
 
 const Header = () => {
   return (
-    <div className="relative overflow-hidden bg-white">
-      <div className="relative z-10 mx-6 sm:mx-12 lg:mx-20 xl:mx-32 pt-20 sm:pt-24 pb-24 sm:pb-32 text-center">
-        <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-[#5044E5]/10 px-4 py-1.5 text-xs sm:text-sm font-medium text-[#5044E5] shadow-sm">
+    <div className="mx-8 sm:mx-16 xl:mx-24 relative">
+      <div className="text-center mt-20 mb-8">
+        {/* Badge */}
+        <div className="inline-flex items-center justify-center gap-4 px-6 py-1.5 mb-4 border border-primary/40 bg-primary/10 rounded-full text-sm text-primary">
           <p>New: AI feature integrated</p>
-          <img
-            src={assets.star_icon}
-            className="w-3 sm:w-4 animate-pulse"
-            alt="star"
-          />
+          <img src={assets.star_icon} className="w-2.5" alt="" />
         </div>
 
-        <h1 className="mt-6 sm:mt-8 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900">
-          Your own <span className="text-primary">blogging</span> platform.
+        {/* Heading */}
+        <h1 className="text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-700">
+          Your own <span className="text-primary">blogging</span> <br />
+          platform.
         </h1>
 
-        <p className="mx-auto mt-4 max-w-xl sm:max-w-2xl text-sm sm:text-base leading-6 sm:leading-7 text-gray-600">
-          Share your thoughts, ideas, and stories with the world through your
+        {/* Description */}
+        <p className="my-6 sm:my-8 max-w-2xl m-auto max-sm:text-xs text-gray-500">
+          This is your space to think out loud, to share what matters, and to
+          write without filters. Whether it's one word or a thousand, your story
+          starts right here.
         </p>
 
-        <form className="mx-auto mt-8 flex w-full max-w-xs sm:max-w-md md:max-w-lg items-center gap-2 rounded-xl border border-gray-200 bg-white p-2 shadow-sm">
+        {/* Searchbar */}
+        <form className="flex justify-between max-w-lg max-sm:scale-75 mx-auto border border-gray-300 bg-white rounded overflow-hidden">
           <input
             type="text"
-            placeholder="Search for Blogs"
+            placeholder="Search for blogs"
             required
-            className="flex-1 rounded-lg px-3 py-2 text-sm sm:text-base text-gray-700 placeholder-gray-400 outline-none focus:ring-2 focus:ring-primary/30"
+            className="w-full pl-4 outline-none"
           />
           <button
             type="submit"
-            className="rounded-lg bg-primary px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-white transition-colors hover:bg-primary/90"
+            className="bg-primary text-white px-8 py-2 m-1.5 rounded hover:scale-105 transition-all cursor-pointer"
           >
             Search
           </button>
         </form>
       </div>
 
+      {/* Gradient Background */}
       <img
         src={assets.gradientBackground}
-        alt="gradient background"
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
+        alt=""
+        className="absolute -top-50 -z-1 opacity-50"
       />
     </div>
   );
