@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
 const Login = () => {
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,14 +33,14 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="border-b-2 border-gray-300 p-2 outline-none mb-6"
                   placeholder="Enter your email id"
-                  />
+                />
               </div>
               <div className="flex flex-col">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   required
-                  value={password} 
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="border-b-2 border-gray-300 p-2 outline-none mb-6"
                   placeholder="Enter your password"
