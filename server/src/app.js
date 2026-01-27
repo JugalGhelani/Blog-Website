@@ -12,6 +12,6 @@ app.use(express.json());
 // Routes
 app.get("/", (req, res) => res.send("Welcome to QuickBlog API"));
 app.use("/api/admin", adminRouter);
-app.use("/api/blog", blogRouter)
+app.use("/api/blog", blogRouter);
 
 export { app };

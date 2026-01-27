@@ -20,7 +20,7 @@ const blogSchema = new Schema(
     image: {
       type: String,
       required: true,
-    }, 
+    },
     isPublished: {
       type: Boolean,
       required: true,
