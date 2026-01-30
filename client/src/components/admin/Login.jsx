@@ -1,11 +1,32 @@
 import React, { useState } from "react";
+import { useAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { axios, setToken } = useAppContext();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { data } = await axios.post("/api/admin/login", {
+        email,
+        password,
+      });
+
+      if (data.success) {
+        setToken(data.token);
+        localStorage.setItem("token", data.token);
+        axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -16,7 +37,7 @@ const Login = () => {
             <h1 className="text-3xl font-bold">
               <span className="text-primary">Admin</span> Login
             </h1>
-            <p class="font-light">
+            <p className="font-light">
               Enter your credentials to access the admin panel
             </p>
 
@@ -48,7 +69,7 @@ const Login = () => {
               </div>
               <button
                 type="submit"
-                class="w-full py-3 font-medium bg-primary text-white rounded cursor-pointer hover:bg-primary/90 transition-all"
+                className="w-full py-3 font-medium bg-primary text-white rounded cursor-pointer hover:bg-primary/90 transition-all"
               >
                 Login
               </button>
